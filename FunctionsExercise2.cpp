@@ -1,31 +1,30 @@
 #include <iostream>
 using namespace std;
 
-// print all 4 digit numbers with even digits
+// print all positive integers in an interval between a and b
 
-bool checkDigitsEven(int num, int lengthOfNum)
+void validateInput(unsigned int& a, unsigned int& b)
 {
-    for (int i = 1; i <= lengthOfNum; i++)
-    {
-        int currentDigit = num % 10;
-        if (currentDigit % 2 != 0)
-        {
-            return false;
-        }
+	do
+	{
+		cout << "a = ";
+		cin >> a;
+		cout << "\n" << "b = ";
+		cin >> b;
+	} while (a > b);
+}
 
-        num /= 10;
-    }
-
-    return true;
+void printAllIntegersInAnInterval(int a, int b)
+{
+	for (int i = a; i <= b; i++)
+	{
+		cout << i << " ";
+	}
 }
 
 int main()
 {
-    const int lengthOfNum = 4;
-    for (int i = 2000; i <= 8888; i += 2)
-    {
-        bool allDigitsAreEven = checkDigitsEven(i, lengthOfNum);
-        if (allDigitsAreEven)
-            cout << i << endl;
-    }
+	unsigned int a, b;
+	validateInput(a, b);
+	printAllIntegersInAnInterval(a, b);
 }
