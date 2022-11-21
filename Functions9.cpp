@@ -3,6 +3,27 @@ using namespace std;
 
 // remove digit from number by given position
 
+//another way of doing this exercise
+/* int power(int base, int exponent)
+{
+	int result = 1;
+	for (int i = 1; i <= exponent; i++)
+	{
+		result *= base;
+	}
+	return result;
+}
+
+int deleteDigit(int number, int position)
+{
+	int divisor = power(10, position);
+	int remainder = number % divisor;
+	int newNumber = (number / divisor) / 10;
+	newNumber *= divisor;
+	newNumber += remainder;
+	return newNumber;
+} */
+
 int reverseNum(int num)
 {
     int reversedNum = 0;
