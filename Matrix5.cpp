@@ -1,20 +1,27 @@
 #include <iostream>
 using namespace std;
 
-void transposeMatrix(int matrix[][10], int n)
+const unsigned MAX_ROWS = 10;
+const unsigned MAX_COLUMNS = 10;
+
+
+void transposeMatrix(int matrix[][MAX_COLUMNS], unsigned& n, unsigned& m)
 {
     for (int i = 0; i < n; ++i)
     {
-        for (int j = i; j < n; ++j)
+        for (int j = i; j < m; ++j)
         {
             int temp = matrix[i][j];
             matrix[i][j] = matrix[j][i];
             matrix[j][i] = temp;
         }
     }
+    int temp = n;
+    n = m;
+    m = temp;
 }
 
-void multiplyMatrix(int matrix[][10], int n, int m, int num)
+void multiplyMatrix(int matrix[][MAX_COLUMNS], unsigned n, unsigned m, int num)
 {
     for (int i = 0; i < n; ++i)
     {
@@ -25,7 +32,7 @@ void multiplyMatrix(int matrix[][10], int n, int m, int num)
     }
 }
 
-void fillMatrix(int matrix[][10], int n, int m)
+void fillMatrix(int matrix[][MAX_COLUMNS], unsigned n, unsigned m)
 {
     for (int i = 0; i < n; ++i)
     {
@@ -36,7 +43,7 @@ void fillMatrix(int matrix[][10], int n, int m)
     }
 }
 
-void printMatrix(const int matrix[][10], int n, int m)
+void printMatrix(const int matrix[][MAX_COLUMNS], unsigned n, unsigned m)
 {
     for (int i = 0; i < n; ++i)
     {
@@ -50,17 +57,19 @@ void printMatrix(const int matrix[][10], int n, int m)
 
 int main()
 {
-    int n, m;
+    // matrix can't be bigger than 10 x 10
+    unsigned n, m;
     cin >> n >> m;
+
     int num;
     cin >> num;
 
-    int matrix[10][10];
+    int matrix[MAX_ROWS][MAX_COLUMNS];
     fillMatrix(matrix, n, m);
+
     //multiplyMatrix(matrix, n, m, num);
     //printMatrix(matrix, n, m);
 
-    // transpose only n x n matrices
-    transposeMatrix(matrix, n);
-    printMatrix(matrix, n, n);
+    //transposeMatrix(matrix, n, m);
+    //printMatrix(matrix, n, m);
 }
