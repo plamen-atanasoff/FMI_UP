@@ -1,4 +1,2 @@
 # FMI_first_semester
-exercises for the first semester of FMI
-
-// make names more understandable
+Exercises for the first semester of FMI.
